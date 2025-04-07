@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -420,16 +420,16 @@
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">70. トークン化</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">71. マスクの予測</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#top-k">72. マスクのtop-k予測</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cls">73. CLSトークンによる文ベクトル</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">74. 平均による文ベクトル</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">75. データセットの準備</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">76. ミニバッチの作成</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">77. ファインチューニング</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">78. 極性分析</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">79. アーキテクチャの変更</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">80. トークン化</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">81. マスクの予測</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#top-k">82. マスクのtop-k予測</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cls">83. CLSトークンによる文ベクトル</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">84. 平均による文ベクトル</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">85. データセットの準備</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">86. ミニバッチの作成</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">87. ファインチューニング</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">88. 極性分析</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">89. アーキテクチャの変更</a></li>
 </ul>
             </nav>
         </div>
@@ -445,19 +445,19 @@
 <h1>第9章: 事前学習済み言語モデル（BERT型）<a class="headerlink" href="#bert" title="Link to this heading">#</a></h1>
 <p>本章では、BERT型の事前学習済みモデルを利用して、マスク単語の予測や文ベクトルの計算、評判分析器（ポジネガ分類器）の構築に取り組む。</p>
 <section id="id1">
-<h2>70. トークン化<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<h2>80. トークン化<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
 <p>“The movie was full of incomprehensibilities.”という文をトークンに分解し、トークン列を表示せよ。</p>
 </section>
 <section id="id2">
-<h2>71. マスクの予測<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<h2>81. マスクの予測<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
 <p>“The movie was full of [MASK].”の”[MASK]”を埋めるのに最も適切なトークンを求めよ。</p>
 </section>
 <section id="top-k">
-<h2>72. マスクのtop-k予測<a class="headerlink" href="#top-k" title="Link to this heading">#</a></h2>
+<h2>82. マスクのtop-k予測<a class="headerlink" href="#top-k" title="Link to this heading">#</a></h2>
 <p>“The movie was full of [MASK].”の”[MASK]”に埋めるのに適切なトークン上位10個と、その確率（尤度）を求めよ。</p>
 </section>
 <section id="cls">
-<h2>73. CLSトークンによる文ベクトル<a class="headerlink" href="#cls" title="Link to this heading">#</a></h2>
+<h2>83. CLSトークンによる文ベクトル<a class="headerlink" href="#cls" title="Link to this heading">#</a></h2>
 <p>以下の文の全ての組み合わせに対して、最終層の[CLS]トークンの埋め込みベクトルを用いてコサイン類似度を求めよ。</p>
 <ul class="simple">
 <li><p>“The movie was full of fun.”</p></li>
@@ -467,7 +467,7 @@
 </ul>
 </section>
 <section id="id3">
-<h2>74. 平均による文ベクトル<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
+<h2>84. 平均による文ベクトル<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
 <p>以下の文の全ての組み合わせに対して、最終層の埋め込みベクトルの平均を用いてコサイン類似度を求めよ。</p>
 <ul class="simple">
 <li><p>“The movie was full of fun.”</p></li>
@@ -477,20 +477,20 @@
 </ul>
 </section>
 <section id="id4">
-<h2>75. データセットの準備<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
+<h2>85. データセットの準備<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
 <p><a class="reference external" href="https://gluebenchmark.com/">General Language Understanding Evaluation (GLUE)</a> ベンチマークで配布されている<a class="reference external" href="https://dl.fbaipublicfiles.com/glue/data/SST-2.zip">Stanford Sentiment Treebank (SST)</a> から訓練セット（train.tsv）と開発セット（dev.tsv）のテキストと極性ラベルと読み込み、さらに全てのテキストはトークン列に変換せよ。</p>
 </section>
 <section id="id5">
-<h2>76. ミニバッチの作成<a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
-<p>75で読み込んだ訓練データの一部（例えば冒頭の4事例）に対して、パディングなどの処理を行い、トークン列の長さを揃えてミニバッチを構成せよ。</p>
+<h2>86. ミニバッチの作成<a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
+<p>85で読み込んだ訓練データの一部（例えば冒頭の4事例）に対して、パディングなどの処理を行い、トークン列の長さを揃えてミニバッチを構成せよ。</p>
 </section>
 <section id="id6">
-<h2>77. ファインチューニング<a class="headerlink" href="#id6" title="Link to this heading">#</a></h2>
+<h2>87. ファインチューニング<a class="headerlink" href="#id6" title="Link to this heading">#</a></h2>
 <p>訓練セットを用い、事前学習済みモデルを極性分析タスク向けにファインチューニングせよ。検証セット上でファインチューニングされたモデルの正解率を計測せよ。</p>
 </section>
 <section id="id7">
-<h2>78. 極性分析<a class="headerlink" href="#id7" title="Link to this heading">#</a></h2>
-<p>問題77でファインチューニングされたモデルを用いて、以下の文の極性を予測せよ。</p>
+<h2>88. 極性分析<a class="headerlink" href="#id7" title="Link to this heading">#</a></h2>
+<p>問題87でファインチューニングされたモデルを用いて、以下の文の極性を予測せよ。</p>
 <ul class="simple">
 <li><p>“The movie was full of incomprehensibilities.”</p></li>
 <li><p>“The movie was full of fun.”</p></li>
@@ -500,8 +500,8 @@
 </ul>
 </section>
 <section id="id8">
-<h2>79. アーキテクチャの変更<a class="headerlink" href="#id8" title="Link to this heading">#</a></h2>
-<p>問題77とは異なるアーキテクチャ（例えば[CLS]トークンを用いるか、各トークンの最大値プーリングを用いるなど）の分類モデルを設計し、事前学習済みモデルを極性分析タスク向けにファインチューニングせよ。検証セット上でファインチューニングされたモデルの正解率を計測せよ。</p>
+<h2>89. アーキテクチャの変更<a class="headerlink" href="#id8" title="Link to this heading">#</a></h2>
+<p>問題87とは異なるアーキテクチャ（例えば[CLS]トークンを用いるか、各トークンの最大値プーリングを用いるなど）の分類モデルを設計し、事前学習済みモデルを極性分析タスク向けにファインチューニングせよ。検証セット上でファインチューニングされたモデルの正解率を計測せよ。</p>
 </section>
 </section>
 
@@ -570,16 +570,16 @@
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">70. トークン化</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">71. マスクの予測</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#top-k">72. マスクのtop-k予測</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cls">73. CLSトークンによる文ベクトル</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">74. 平均による文ベクトル</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">75. データセットの準備</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">76. ミニバッチの作成</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">77. ファインチューニング</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">78. 極性分析</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">79. アーキテクチャの変更</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">80. トークン化</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">81. マスクの予測</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#top-k">82. マスクのtop-k予測</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cls">83. CLSトークンによる文ベクトル</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">84. 平均による文ベクトル</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">85. データセットの準備</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">86. ミニバッチの作成</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">87. ファインチューニング</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">88. 極性分析</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">89. アーキテクチャの変更</a></li>
 </ul>
   </nav></div>
 
