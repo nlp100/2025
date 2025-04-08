@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -64,6 +64,8 @@
     <link rel="canonical" href="https://nlp100.github.io/ja/prepare.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="第1章: 準備運動" href="ch01.html" />
+    <link rel="prev" title="言語処理100本ノック 2025 (Rev 1)" href="index.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -122,8 +124,6 @@
       
       
       
-        
-      
       <dialog id="pst-primary-sidebar-modal"></dialog>
       <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
@@ -170,7 +170,8 @@
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">実行環境の準備</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ch01.html">第1章: 準備運動</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ch02.html">第2章: UNIXコマンド</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ch03.html">第3章: 正規表現</a></li>
@@ -396,21 +397,24 @@
 <h2>Google Colaboratory<a class="headerlink" href="#google-colaboratory" title="Link to this heading">#</a></h2>
 <p>各章のページ右上のロケット（🚀）のアイコンをクリックし、Colabを選ぶと、Google Colaboratory上でその章の問題を（Jupyter Notebookとして）開くことができます。</p>
 <img alt="Launch on Colab" class="bg-primary mb-1 align-center" src="../_images/launch-on-colab.png" />
-<p>あとは、コードセルを挿入してコーディングを行い、プログラムを実行しながら学習を進めましょう。Google Colaboratoryの基本的な使い方は、他のウェブサイト等を参考にしてください。<a class="reference external" href="https://chokkan.github.io/python/">Python早見帳</a>にも<a class="reference external" href="https://chokkan.github.io/python/jupyter.html#google-colaboratory">Google Colaboratoryの使い方</a>がまとめられています。以降では、特に重要な事柄を説明します。</p>
+<p>あとは、コードセルを挿入してコーディングを行い、プログラムを実行しながら学習を進めましょう。Google Colaboratoryの基本的な使い方は、他のウェブサイト等を参考にしてください。<a class="reference external" href="https://chokkan.github.io/python/">Python早見帳</a>にも<a class="reference external" href="https://chokkan.github.io/python/jupyter.html#google-colaboratory">Google Colaboratoryの使い方</a>がまとめられています。</p>
 <img alt="Colaboratory" class="bg-primary mb-1 align-center" src="../_images/colaboratory.png" />
+<p>以降では、特に重要な事柄を説明します。</p>
 <section id="api">
 <h3>APIキーの管理<a class="headerlink" href="#api" title="Link to this heading">#</a></h3>
 <p>言語処理100本ノックの5章で大規模言語モデルの有料API（例えばOpenAIのGPT-4シリーズのAPI）を用いる場合、APIキーが必要になります。
 このAPIキーが漏洩してしまうと、他人が勝手に有料のAPIを使い、その利用料があなたに請求されることになります。
-コードの中にAPIキーをべた書きしていると、Jupyter Notebookを他人と共有した時にAPIキーが漏洩する恐れがありますので、APIキーをコードの中に記述するのは避けるべきです。</p>
-<p>Google Colaboratoryには、APIキーのような秘密の文字列を管理する機能があります。左側のツールバーから鍵（🔑）のアイコンをクリックすると、キーとその値を管理する画面が現れます。ここで、キーの名前を適当に決めて「名前」欄に、キーの内容を「値」欄に入力し、「ノートブックからのアクセスを」にチェックを入れます。ここに登録したAPIキーはコードの実行時に取得できます。</p>
+Google Colaboratoryのコードセル中にAPIキーをべた書きしていると、Notebookを他人と共有した時にAPIキーが漏洩する恐れがあります。
+また、GitHubなどのレポジトリで管理しているソースコードの中にAPIキーを書いてしまうと、やはりAPIキーの漏洩につながります。
+したがって、<strong>コード中にAPIキーを書かない</strong>という習慣を身に付けておくことが大切です。</p>
+<p>Google Colaboratoryには、APIキーのような秘密の文字列を管理する機能があります。左側のツールバーから鍵（🔑）のアイコンをクリックすると、キーとその値を管理する画面が現れます。ここで、キーの名前を適当に決めて「名前」欄に、キーの内容を「値」欄に入力し、「ノートブックからのアクセス」にチェックを入れます。すると、ここに登録したAPIキー（値）をコードの実行時に取得できます。</p>
 <img alt="Secret" class="bg-primary mb-1 align-center" src="../_images/colab-secret.png" />
-<p>例えば、<code class="docutils literal notranslate"><span class="pre">OPENAI_KEY</span></code>として<code class="docutils literal notranslate"><span class="pre">apikey1234abc</span></code>を登録した場合、以下のコードで文字列<code class="docutils literal notranslate"><span class="pre">&quot;apikey1234abc&quot;</span></code>を取得できます。</p>
+<p>例えば、<code class="docutils literal notranslate"><span class="pre">OPENAI_KEY</span></code>として<code class="docutils literal notranslate"><span class="pre">apikey1234abc</span></code>を登録した場合、以下のコードを実行すると変数<code class="docutils literal notranslate"><span class="pre">api_key</span></code>に文字列<code class="docutils literal notranslate"><span class="pre">&quot;apikey1234abc&quot;</span></code>が得られます。</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">userdata</span>
-<span class="n">userdata</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;OPENAI_KEY&#39;</span><span class="p">)</span>
+<span class="n">api_key</span> <span class="o">=</span> <span class="n">userdata</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;OPENAI_KEY&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>このように、コードの中に直接APIキーを記述することなく、APIキーを利用できます。このような秘密の文字列の管理は、第9章や第10章でHuggingFaceのアクセストークンやWandBのAPIキーの管理でも重宝します。</p>
+<p>この変数を使ってOpenAIのライブラリにAPIキーを渡せば、コード中にAPIキーを書かずに済みます。このような秘密の文字列の管理は、第9章や第10章でHuggingFaceのアクセストークンやWandBのAPIキーの管理でも重宝します。</p>
 </section>
 </section>
 </section>
@@ -445,6 +449,24 @@
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">言語処理100本ノック 2025 (Rev 1)</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="ch01.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">第1章: 準備運動</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
