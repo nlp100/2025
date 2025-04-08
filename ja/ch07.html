@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -424,11 +424,10 @@
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">61. 特徴ベクトル</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">62. 学習</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">63. 予測</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">64. 予測</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">65. 正解率の計測</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">66. テキストのポジネガの予測</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">67. 混同行列の作成</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#f1">68. 適合率、再現率、F1スコアの計測</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">64. 条件付き確率</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">65. テキストのポジネガの予測</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">66. 混同行列の作成</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">67. 精度の計測</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">68. 特徴量の重みの確認</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">69. 正則化パラメータの変更</a></li>
 </ul>
@@ -470,24 +469,20 @@
 <p>学習したロジスティック回帰モデルを用い、検証データの先頭の事例のラベル（ポジネガ）を予測せよ。また、予測されたラベルが検証データで付与されていたラベルと一致しているか、確認せよ。</p>
 </section>
 <section id="id6">
-<h2>64. 予測<a class="headerlink" href="#id6" title="Link to this heading">#</a></h2>
-<p>学習したロジスティック回帰モデルを用い、検証データの先頭の事例を各ラベル（ポジネガ）に分類するときの条件付確率（尤度）を求めよ。</p>
+<h2>64. 条件付き確率<a class="headerlink" href="#id6" title="Link to this heading">#</a></h2>
+<p>学習したロジスティック回帰モデルを用い、検証データの先頭の事例を各ラベル（ポジネガ）に分類するときの条件付き確率を求めよ。</p>
 </section>
 <section id="id7">
-<h2>65. 正解率の計測<a class="headerlink" href="#id7" title="Link to this heading">#</a></h2>
-<p>学習したロジスティック回帰モデルの正解率を、学習データおよび検証データ上で計測せよ。</p>
-</section>
-<section id="id8">
-<h2>66. テキストのポジネガの予測<a class="headerlink" href="#id8" title="Link to this heading">#</a></h2>
+<h2>65. テキストのポジネガの予測<a class="headerlink" href="#id7" title="Link to this heading">#</a></h2>
 <p>与えられたテキストのポジネガを予測するプログラムを実装せよ。例えば、テキストとして”the worst movie I ‘ve ever seen”を与え、ロジスティック回帰モデルの予測結果を確認せよ。</p>
 </section>
-<section id="id9">
-<h2>67. 混同行列の作成<a class="headerlink" href="#id9" title="Link to this heading">#</a></h2>
+<section id="id8">
+<h2>66. 混同行列の作成<a class="headerlink" href="#id8" title="Link to this heading">#</a></h2>
 <p>学習したロジスティック回帰モデルの検証データにおける混同行列（confusion matrix）を求めよ。</p>
 </section>
-<section id="f1">
-<h2>68. 適合率、再現率、F1スコアの計測<a class="headerlink" href="#f1" title="Link to this heading">#</a></h2>
-<p>ロジスティック回帰モデルの適合率、再現率、F1スコアを、検証データ上で計測せよ。</p>
+<section id="id9">
+<h2>67. 精度の計測<a class="headerlink" href="#id9" title="Link to this heading">#</a></h2>
+<p>学習したロジスティック回帰モデルの正解率、適合率、再現率、F1スコアを、学習データおよび検証データ上で計測せよ。</p>
 </section>
 <section id="id10">
 <h2>68. 特徴量の重みの確認<a class="headerlink" href="#id10" title="Link to this heading">#</a></h2>
@@ -568,11 +563,10 @@
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">61. 特徴ベクトル</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">62. 学習</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">63. 予測</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">64. 予測</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">65. 正解率の計測</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">66. テキストのポジネガの予測</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">67. 混同行列の作成</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#f1">68. 適合率、再現率、F1スコアの計測</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">64. 条件付き確率</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">65. テキストのポジネガの予測</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">66. 混同行列の作成</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">67. 精度の計測</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">68. 特徴量の重みの確認</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">69. 正則化パラメータの変更</a></li>
 </ul>

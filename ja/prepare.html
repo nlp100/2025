@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -351,7 +351,9 @@
 <button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
 </button>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -367,6 +369,17 @@
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#google-colaboratory">Google Colaboratory</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#api">APIキーの管理</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -378,7 +391,28 @@
                   
   <section class="tex2jax_ignore mathjax_ignore" id="id1">
 <h1>実行環境の準備<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
-<p>言語処理100本ノック 2025を始めるにはプログラミング環境が必要です。また、第8章から第10章までの問題の一部では、GPUなどの深層学習向けアクセラレータが必要になります。深層学習向けのプログラミング環境を整備するには、高度な知識やスキルが必要になりますので、最初は<a class="reference external" href="https://colab.research.google.com/">Google Colaboratory</a>や<a class="reference external" href="https://studiolab.sagemaker.aws/">SageMaker Studio Lab</a>などのクラウド上のJupyter実行環境を活用することをお薦めします。</p>
+<p>言語処理100本ノック 2025を始めるにはプログラミング環境が必要です。また、第8章から第10章までの問題の一部では、GPUなどの深層学習向けアクセラレータが必要になります。深層学習向けのプログラミング環境を整備するには、高度な知識やスキルが必要になりますので、特段の理由が無ければ<a class="reference external" href="https://colab.research.google.com/">Google Colaboratory</a>や<a class="reference external" href="https://studiolab.sagemaker.aws/">SageMaker Studio Lab</a>などのクラウド上のJupyter実行環境を活用することをお勧めします。</p>
+<section id="google-colaboratory">
+<h2>Google Colaboratory<a class="headerlink" href="#google-colaboratory" title="Link to this heading">#</a></h2>
+<p>各章のページ右上のロケット（🚀）のアイコンをクリックし、Colabを選ぶと、Google Colaboratory上でその章の問題を（Jupyter Notebookとして）開くことができます。</p>
+<img alt="Launch on Colab" class="bg-primary mb-1 align-center" src="../_images/launch-on-colab.png" />
+<p>あとは、コードセルを挿入してコーディングを行い、プログラムを実行しながら学習を進めましょう。Google Colaboratoryの基本的な使い方は、他のウェブサイト等を参考にしてください。<a class="reference external" href="https://chokkan.github.io/python/">Python早見帳</a>にも<a class="reference external" href="https://chokkan.github.io/python/jupyter.html#google-colaboratory">Google Colaboratoryの使い方</a>がまとめられています。以降では、特に重要な事柄を説明します。</p>
+<img alt="Colaboratory" class="bg-primary mb-1 align-center" src="../_images/colaboratory.png" />
+<section id="api">
+<h3>APIキーの管理<a class="headerlink" href="#api" title="Link to this heading">#</a></h3>
+<p>言語処理100本ノックの5章で大規模言語モデルの有料API（例えばOpenAIのGPT-4シリーズのAPI）を用いる場合、APIキーが必要になります。
+このAPIキーが漏洩してしまうと、他人が勝手に有料のAPIを使い、その利用料があなたに請求されることになります。
+コードの中にAPIキーをべた書きしていると、Jupyter Notebookを他人と共有した時にAPIキーが漏洩する恐れがありますので、APIキーをコードの中に記述するのは避けるべきです。</p>
+<p>Google Colaboratoryには、APIキーのような秘密の文字列を管理する機能があります。左側のツールバーから鍵（🔑）のアイコンをクリックすると、キーとその値を管理する画面が現れます。ここで、キーの名前を適当に決めて「名前」欄に、キーの内容を「値」欄に入力し、「ノートブックからのアクセスを」にチェックを入れます。ここに登録したAPIキーはコードの実行時に取得できます。</p>
+<img alt="Secret" class="bg-primary mb-1 align-center" src="../_images/colab-secret.png" />
+<p>例えば、<code class="docutils literal notranslate"><span class="pre">OPENAI_KEY</span></code>として<code class="docutils literal notranslate"><span class="pre">apikey1234abc</span></code>を登録した場合、以下のコードで文字列<code class="docutils literal notranslate"><span class="pre">&quot;apikey1234abc&quot;</span></code>を取得できます。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">userdata</span>
+<span class="n">userdata</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;OPENAI_KEY&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>このように、コードの中に直接APIキーを記述することなく、APIキーを利用できます。このような秘密の文字列の管理は、第9章や第10章でHuggingFaceのアクセストークンやWandBのAPIキーの管理でも重宝します。</p>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -417,6 +451,25 @@
             </div>
             
             
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#google-colaboratory">Google Colaboratory</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#api">APIキーの管理</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
