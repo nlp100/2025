@@ -1,4 +1,4 @@
-# 言語処理100本ノック 2025
+# 言語処理100本ノック 2025 (Rev 1)
 
 ```{only} html
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/chokkan/mlnote/blob/main/)
