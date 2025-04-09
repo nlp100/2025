@@ -33,36 +33,36 @@
 + 中国語版の完成 🎉
   + 中国語への翻訳はRunzhe Zhanさん、Youmi Maさんにご協力頂きました。
 + 日本語版におけるバグ修正
-  + 問題32における用語の修正（[#28](https://github.com/nlp100/nlp100.github.io/issues/28)）
+  + 問題32における用語の修正（[#28](https://github.com/nlp100/2020/issues/28)）
 
 ### 2020-06-08
 [言語処理100本ノック 2020](http://nlp100.github.io/2020/)Rev 1を公開
 
 + 英語版の完成 🎉
   + 第5章から第10章の英訳は、[清野舜](https://butsugiri.github.io/)さん、[Benjamin Heinzerling](https://bheinzerling.github.io/)さん、Ana Brassardさん、[Paul Reisert](http://www.cl.ecei.tohoku.ac.jp/~preisert/)さんにご協力いただきました。
-  + 問題07の綴り間違いの修正（[#12](https://github.com/nlp100/nlp100.github.io/pull/12)）
-  + 第4章において品詞タグ付け済のデータを配布（[#13](https://github.com/nlp100/nlp100.github.io/issues/13)）
-  + 問題38の文面の修正（[#14](https://github.com/nlp100/nlp100.github.io/issues/14)）
-  + 問題08の文面の修正（[#24](https://github.com/nlp100/nlp100.github.io/pull/24)）
+  + 問題07の綴り間違いの修正（[#12](https://github.com/nlp100/2020/pull/12)）
+  + 第4章において品詞タグ付け済のデータを配布（[#13](https://github.com/nlp100/2020/issues/13)）
+  + 問題38の文面の修正（[#14](https://github.com/nlp100/2020/issues/14)）
+  + 問題08の文面の修正（[#24](https://github.com/nlp100/2020/pull/24)）
   + 問題18の翻訳誤りの修正
   + その他、綴り間違いやスタイルの修正
 + 韓国語版の公開（39番まで翻訳完了）:sparkles:
   + 韓国語への翻訳は[Sangwhan Moon](https://sangwhan.com/)さんにご協力頂きました。
 + 日本語版における数多くのバグを修正 :sweat_smile:
-  + 第8章における表記の修正（[#1](https://github.com/nlp100/nlp100.github.io/pull/1)）
-  + 問題49の数式表示の修正（[#2](https://github.com/nlp100/nlp100.github.io/pull/2)）
-  + 第6章の章タイトルの修正（[#2](https://github.com/nlp100/nlp100.github.io/pull/2)）
-  + 第3章のデータの間違いを修正 ([#6](https://github.com/nlp100/nlp100.github.io/issues/6))
-  + 問題51の文面の修正（[#7](https://github.com/nlp100/nlp100.github.io/issues/7) ）
-  + 問題50および51の文面の修正（[#8](https://github.com/nlp100/nlp100.github.io/pull/8)）
-  + 問題75の表記の修正（[#9](https://github.com/nlp100/nlp100.github.io/pull/9)）
-  + 第5章におけるリンクの修正（[#16](https://github.com/nlp100/nlp100.github.io/pull/16)）
-  + 問題04の文面の修正（[#18](https://github.com/nlp100/nlp100.github.io/pull/18)）
-  + 第5章の係り受け解析の誤りに対処するため、用いるテキストを変更（[#19](https://github.com/nlp100/nlp100.github.io/issues/19)）
-  + 問題69の文面の修正（[#21](https://github.com/nlp100/nlp100.github.io/issues/21)）
-  + 問題71の文面の修正（[#22](https://github.com/nlp100/nlp100.github.io/issues/22)）
+  + 第8章における表記の修正（[#1](https://github.com/nlp100/2020/pull/1)）
+  + 問題49の数式表示の修正（[#2](https://github.com/nlp100/2020/pull/2)）
+  + 第6章の章タイトルの修正（[#2](https://github.com/nlp100/2020/pull/2)）
+  + 第3章のデータの間違いを修正 ([#6](https://github.com/nlp100/2020/issues/6))
+  + 問題51の文面の修正（[#7](https://github.com/nlp100/2020/issues/7) ）
+  + 問題50および51の文面の修正（[#8](https://github.com/nlp100/2020/pull/8)）
+  + 問題75の表記の修正（[#9](https://github.com/nlp100/2020/pull/9)）
+  + 第5章におけるリンクの修正（[#16](https://github.com/nlp100/2020/pull/16)）
+  + 問題04の文面の修正（[#18](https://github.com/nlp100/2020/pull/18)）
+  + 第5章の係り受け解析の誤りに対処するため、用いるテキストを変更（[#19](https://github.com/nlp100/2020/issues/19)）
+  + 問題69の文面の修正（[#21](https://github.com/nlp100/2020/issues/21)）
+  + 問題71の文面の修正（[#22](https://github.com/nlp100/2020/issues/22)）
 
-[Issues](https://github.com/nlp100/nlp100.github.io/issues)を報告して頂いた皆様、および[Pull Requests](https://github.com/nlp100/nlp100.github.io/pulls)を送って頂いた皆様に感謝申し上げます。:pray:
+[Issues](https://github.com/nlp100/2020/issues)を報告して頂いた皆様、および[Pull Requests](https://github.com/nlp100/2020/pulls)を送って頂いた皆様に感謝申し上げます。:pray:
 
 ### 2020-04-06
 [言語処理100本ノック 2020](http://nlp100.github.io/2020/)を公開

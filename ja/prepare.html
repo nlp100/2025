@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>実行環境の準備 &#8212; 言語処理100本ノック 2025</title>
+    <title>実行環境 &#8212; 言語処理100本ノック 2025</title>
   
   
   
@@ -64,8 +64,8 @@
     <link rel="canonical" href="https://nlp100.github.io/ja/prepare.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="第1章: 準備運動" href="ch01.html" />
-    <link rel="prev" title="言語処理100本ノック 2025 (Rev 1)" href="index.html" />
+    <link rel="next" title="言語処理100本ノックについて" href="about.html" />
+    <link rel="prev" title="第10章: 事前学習済み言語モデル（GPT型）" href="ch10.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -171,7 +171,6 @@
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">実行環境の準備</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ch01.html">第1章: 準備運動</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ch02.html">第2章: UNIXコマンド</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ch03.html">第3章: 正規表現</a></li>
@@ -182,6 +181,7 @@
 <li class="toctree-l1"><a class="reference internal" href="ch08.html">第8章: ニューラルネット</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ch09.html">第9章: 事前学習済み言語モデル（BERT型）</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ch10.html">第10章: 事前学習済み言語モデル（GPT型）</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">実行環境</a></li>
 <li class="toctree-l1"><a class="reference internal" href="about.html">言語処理100本ノックについて</a></li>
 </ul>
 
@@ -365,7 +365,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>実行環境の準備</h1>
+    <h1>実行環境</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -377,6 +377,10 @@
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#google-colaboratory">Google Colaboratory</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#api">APIキーの管理</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">ランタイムの選択</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">単語ベクトルの読み込み</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ai">生成AIによるコード生成・補完</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#github">GitHubレポジトリでの解答の管理</a></li>
 </ul>
 </li>
 </ul>
@@ -391,7 +395,7 @@
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1>実行環境の準備<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
+<h1>実行環境<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
 <p>言語処理100本ノック 2025を始めるにはプログラミング環境が必要です。また、第8章から第10章までの問題の一部では、GPUなどの深層学習向けアクセラレータが必要になります。深層学習向けのプログラミング環境を整備するには、高度な知識やスキルが必要になりますので、特段の理由が無ければ<a class="reference external" href="https://colab.research.google.com/">Google Colaboratory</a>や<a class="reference external" href="https://studiolab.sagemaker.aws/">SageMaker Studio Lab</a>などのクラウド上のJupyter実行環境を活用することをお勧めします。</p>
 <section id="google-colaboratory">
 <h2>Google Colaboratory<a class="headerlink" href="#google-colaboratory" title="Link to this heading">#</a></h2>
@@ -402,11 +406,11 @@
 <p>以降では、特に重要な事柄を説明します。</p>
 <section id="api">
 <h3>APIキーの管理<a class="headerlink" href="#api" title="Link to this heading">#</a></h3>
-<p>言語処理100本ノックの5章で大規模言語モデルの有料API（例えばOpenAIのGPT-4シリーズのAPI）を用いる場合、APIキーが必要になります。
+<p>言語処理100本ノックの5章で大規模言語モデルの有料API（例えばOpenAIのGPT-4シリーズのAPI）を利用する場合、APIキーが必要になります。
 このAPIキーが漏洩してしまうと、他人が勝手に有料のAPIを使い、その利用料があなたに請求されることになります。
 Google Colaboratoryのコードセル中にAPIキーをべた書きしていると、Notebookを他人と共有した時にAPIキーが漏洩する恐れがあります。
-また、GitHubなどのレポジトリで管理しているソースコードの中にAPIキーを書いてしまうと、やはりAPIキーの漏洩につながります。
-したがって、<strong>コード中にAPIキーを書かない</strong>という習慣を身に付けておくことが大切です。</p>
+また、GitHubなどのレポジトリで管理しているソースコードの中にAPIキーを書いてしまうと、やはりAPIキーの漏洩につながります（特にパブリックレポジトリでは危険です）。
+したがって、<strong>コード中にAPIキーを書かない</strong>という鉄則を身に付けておくことが大切です。</p>
 <p>Google Colaboratoryには、APIキーのような秘密の文字列を管理する機能があります。左側のツールバーから鍵（🔑）のアイコンをクリックすると、キーとその値を管理する画面が現れます。ここで、キーの名前を適当に決めて「名前」欄に、キーの内容を「値」欄に入力し、「ノートブックからのアクセス」にチェックを入れます。すると、ここに登録したAPIキー（値）をコードの実行時に取得できます。</p>
 <img alt="Secret" class="bg-primary mb-1 align-center" src="../_images/colab-secret.png" />
 <p>例えば、<code class="docutils literal notranslate"><span class="pre">OPENAI_KEY</span></code>として<code class="docutils literal notranslate"><span class="pre">apikey1234abc</span></code>を登録した場合、以下のコードを実行すると変数<code class="docutils literal notranslate"><span class="pre">api_key</span></code>に文字列<code class="docutils literal notranslate"><span class="pre">&quot;apikey1234abc&quot;</span></code>が得られます。</p>
@@ -415,6 +419,59 @@ Google Colaboratoryのコードセル中にAPIキーをべた書きしている�
 </pre></div>
 </div>
 <p>この変数を使ってOpenAIのライブラリにAPIキーを渡せば、コード中にAPIキーを書かずに済みます。このような秘密の文字列の管理は、第9章や第10章でHuggingFaceのアクセストークンやWandBのAPIキーの管理でも重宝します。</p>
+</section>
+<section id="id2">
+<h3>ランタイムの選択<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<p>自然言語処理の研究や開発では、数時間から数日、もしくは数か月かかるプログラムを動かすことがありますが、言語処理100本ノックのすべての問題は、Google Colaboratory上の計算資源で実行できるように調整してあります。ほとんどの問題のプログラムはすぐに実行が終了すると思いますが、中には実行に数秒から1分近くかかる問題もあります。また、GPU等のハードウェアを用いても、数分から1時間以上かかる問題（モデルの学習など）もあります。</p>
+<p>問題77-79と問題87-89を除き、第1章から第9章まではCPUランタイムで実行できます。以下はCPUで実行することが想定されている問題のうち、実行に比較的時間がかかる問題です。参考までに、問題作成時の検証実験における実行時間を示します。</p>
+<ul class="simple">
+<li><p>問題73: 2分10秒（1エポックあたりの実行時間、単語埋め込みの次元数は300）</p></li>
+<li><p>問題76: 18秒（1エポックあたりの実行時間、単語埋め込みの次元数は300、バッチサイズは8）</p></li>
+</ul>
+<p>第8章の問題のうち、GPUで実行することが想定されている問題の実行時間をT4 GPUで測定しました。</p>
+<ul class="simple">
+<li><p>問題77: 21秒（1エポックあたりの実行時間、単語埋め込みの次元数は300、バッチサイズは8）</p></li>
+<li><p>問題78: 1分36秒（1エポックあたりの実行時間、単語埋め込みの次元数は300、単語埋め込みも更新、バッチサイズは8）</p></li>
+<li><p>問題79: 1分48秒（1エポックあたりの実行時間、単語埋め込みの次元数は300、単語埋め込みも更新、ラベル予測の直前に次元数8の隠れ層とReLUを追加、バッチサイズは8）</p></li>
+<li><p>問題79: 1分59秒（1エポックあたりの実行時間、単語埋め込みの次元数は300、単語埋め込みも更新、次元数が50の2層の畳み込みニューラルネットワーク (CNN) を追加、バッチサイズは8）</p></li>
+<li><p>問題79: 2分16秒（1エポックあたりの実行時間、単語埋め込みの次元数は300、単語埋め込みも更新、次元数が50の2層の再帰型ニューラルネットワーク (RNN) を追加、バッチサイズは8）</p></li>
+</ul>
+<p>第9章の問題のうち、問題87と問題89はGPUで実行することが推奨されます。問題88の実行にGPUは必須ではありませんが、問題87で学習したモデルがGPUランタイム上にあるため、問題88もGPUで実行することになります。BERTモデルとして<a class="reference external" href="https://huggingface.co/answerdotai/ModernBERT-base">ModernBERT-base</a>を用いた場合の実行時間をT4 GPUで計測しました。</p>
+<ul class="simple">
+<li><p>問題87: 12分7秒（1エポックあたりの実行時間、デフォルトのラベル予測アーキテクチャを採用、BERTのモデルパラメータも更新、バッチサイズは32）</p></li>
+<li><p>問題89: 12分6秒（1エポックあたりの実行時間、最終層のトークン埋め込みに対して最大値プーリングを適用し、50次元の隠れ層とReLU、ドロップアウトを通してからラベルを予測、BERTのモデルパラメータも更新、バッチサイズは32）</p></li>
+</ul>
+<p>参考までに、問題87をCPU上で動作させると、1エポックあたりの実行時間が約29時間と見積もられました。BERTのパラメータを更新しないようにすることで、CPU上で学習することは不可能ではないと思いますが、事前学習モデルのファインチューニングにはGPUなどのハードウェアが当然のように用いられますので、GPUの利用に慣れておいた方がよいと思います。</p>
+<p>第10章の問題は、すべてGPUランタイムで実行することが推奨されます。用いる事前学習済み言語モデルによって、必要な計算資源が大きく異なりますが、ここでは<a class="reference external" href="https://huggingface.co/meta-llama/Llama-3.2-1B-Instruct">Meta Llama 3.2 1B Instruct (meta-llama/Llama-3.2-1B-Instruct)</a> を例に説明します。このモデルのダウンロードに時間がかかりますが、問題95までのプログラムの実行はすぐに終わります。
+問題96以降の実行時間をA100 GPUランタイム（有料）上で計測しました。</p>
+<ul class="simple">
+<li><p>問題96: 10分34秒（最大で32トークンを生成、バッチサイズは1）</p></li>
+<li><p>問題97: 19分36秒（1エポックあたりの実行時間、標準的なラベル予測アーキテクチャを採用、モデルのパラメータも更新、学習時に26.4GBのGPUメモリを消費）</p></li>
+<li><p>問題98: 7分14秒（1エポックあたりの実行時間、ランク16のLoRAチューニング、学習時に3.5GBのGPUメモリを消費）</p></li>
+<li><p>問題99: 17分17秒（1エポックあたりの実行時間、DPO、ランク16のLoRAチューニング、学習時に16.4GBのGPUメモリを消費）</p></li>
+</ul>
+<p>なお、第10章のプログラムを動作させるときに必要となる計算資源は、事前学習済み言語モデルのパラメータ数、学習に用いるライブラリ・アルゴリズムによって大きく異なります。</p>
+</section>
+<section id="id3">
+<h3>単語ベクトルの読み込み<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<p>事前学習済みの単語ベクトルを扱うとき、<a class="reference external" href="https://radimrehurek.com/gensim/">gensim</a>がよく用いられると思います。
+gensimはGoogle Colaboratoryにインストールされていないので、<code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">gensim</span></code>をコマンドとして実行し、手動でインストールする必要があります。ところが、gensimはNumPy 2.xと互換性が無いため、gensimをインストールするとNumPyのバージョンが1.xにダウングレードされます。このとき、Google Colaboratoryのランタイムを再起動する必要があるようなのですが、そのような指示が表示されません。gensimのインストールが完了したら、Google Colaboratoryのメニューバーから「ランタイム」→「セッションを再起動する」をクリックし、ランタイムを再起動してください。ランタイムを再起動した後に、<code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">gensim</span></code>を再実行する必要はありません。</p>
+</section>
+<section id="ai">
+<h3>生成AIによるコード生成・補完<a class="headerlink" href="#ai" title="Link to this heading">#</a></h3>
+<p>Google Colaboratoryには生成AI (Gemini) によるコード生成やコード補完の機能が備わっています。
+これを上手に活用することで、コーディング作業を効率化できますが、処理をプログラムに落とし込む方法を考えずにコードが書けてしまうので、コーディングスキルが身に付かないという欠点があります。
+コーディングの方針を頭の中で考える、ライブラリの利用方法をウェブで調べる、英語のドキュメントを読む、ややこしいテンソルの中身を理解するなど、言語処理100本ノックの問題を解くときに同時に鍛えられるスキルがありますので、最初のうちは生成AIを使わずに、自力でコードを書いた方がよいと思います。
+生成AIの機能をオフにするには、設定（⚙）アイコンをクリックし、「AIアシスタント」タブで「AIによるコード補完を表示」のチェックを外してください。</p>
+</section>
+<section id="github">
+<h3>GitHubレポジトリでの解答の管理<a class="headerlink" href="#github" title="Link to this heading">#</a></h3>
+<p>大学や会社の同期と一緒に言語処理100本ノックを解き、お互いのコードを解説・理解・批評するような勉強会を開催すると、学習効果が高まります。
+勉強会では、GitHubのプライベートレポジトリを作成し、参加者のコードを共有するという運用をとることが考えられます。
+その場合、Google ColaboratoryからレポジトリのJupyter Notebookを直接読み書きする機能を活用すると便利です。
+「ファイル」→「ノートブックを開く」のダイアログで、「GitHub」タブをクリックすると、プライベートレポジトリも含めてGitHubのレポジトリ上にあるJupyter Notebook (*.ipynb) を直接開くことができます。
+Google Colaboratory上でNotebookの内容を編集したら、「ファイル」→「保存」でGitHubのレポジトリに変更をコミットできます。
+この機能は大変便利ですが、Notebookの自動保存ができないため、ブラウザがクラッシュするとNotebookの変更点が失われます。</p>
 </section>
 </section>
 </section>
@@ -450,20 +507,20 @@ Google Colaboratoryのコードセル中にAPIキーをべた書きしている�
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="index.html"
+       href="ch10.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">言語処理100本ノック 2025 (Rev 1)</p>
+        <p class="prev-next-title">第10章: 事前学習済み言語モデル（GPT型）</p>
       </div>
     </a>
     <a class="right-next"
-       href="ch01.html"
+       href="about.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">第1章: 準備運動</p>
+        <p class="prev-next-title">言語処理100本ノックについて</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -486,6 +543,10 @@ Google Colaboratoryのコードセル中にAPIキーをべた書きしている�
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#google-colaboratory">Google Colaboratory</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#api">APIキーの管理</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">ランタイムの選択</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">単語ベクトルの読み込み</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ai">生成AIによるコード生成・補完</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#github">GitHubレポジトリでの解答の管理</a></li>
 </ul>
 </li>
 </ul>
